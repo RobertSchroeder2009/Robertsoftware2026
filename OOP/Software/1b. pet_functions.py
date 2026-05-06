@@ -42,3 +42,11 @@ if verify_credit_card(num) == True:
 else:
   print('INVALID')
 
+def test():
+  global vaccinated
+  if vaccinated == False:
+    vaccinated = True
+    print(vaccinated)
+  else:
+    print('bonnie is already vaccinated')
+test()
