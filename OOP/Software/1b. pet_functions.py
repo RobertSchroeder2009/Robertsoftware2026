@@ -1,7 +1,7 @@
 name = 'Bonnie'
 animal_category = 'Cat'
 age = 3
-vaccinated = True
+vaccinated = False
 card = '3423 2326 7543 1234'
 billing_address = '17 Park Drive, The Shire 2695'
 owner_name = 'Alex Ngyuen'
@@ -46,7 +46,7 @@ def test():
   global vaccinated
   if vaccinated == False:
     vaccinated = True
-    print(vaccinated)
+    print(f'vaccinated status updated to: {vaccinated}')
   else:
     print('bonnie is already vaccinated')
 test()

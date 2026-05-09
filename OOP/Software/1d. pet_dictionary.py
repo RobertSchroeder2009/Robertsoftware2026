@@ -4,7 +4,7 @@
 #3 Add values to the dictionary
 
 pet1 = {
-'name' : 'Bonnie',
+'name' : 'Miss Bonnie',
 'animal category' : 'Cat',
 'age' : 3,
 'vaccinated' : True,
@@ -12,9 +12,30 @@ pet1 = {
 'billing address' : '17 Park Drive, The Shire 3695',
 'owner name' : 'Annie Jenkins',
 'account balance' : 129.95,
+
 }
 
+pet1['age'] = 4
 
+for item in pet1:
+    print(item, ':', pet1[item])
+    
+print('')
+
+
+pet2 = {
+'name' : 'Scruffy',
+'animal category' : 'dog',
+'age' : 8,
+'vaccinated' : True,
+'credit card' : '8374 3897 1058 0831',
+'billing address' : '67 road avenue, arch 2785',
+'owner name' : 'Janet Banksly',
+'account balance' : 452.08,
+}
+
+for items in pet2:
+    print(items, ':', pet2[items])
 
 #ACTIVITIES:
 #1. Change name to Miss Bonnie
