@@ -8,7 +8,7 @@ class Pet:
         self.category = category
         self.age = age
         self.ccard = 'unknown'
-        self.vaccinated = False
+        self.vaccinated = True
 
     def __str__(self):
         my_status = 'Names: ' + self.name + '\nCategory: ' + self.category + '\nAge: ' + str(self.age) + '\nCcredit: ' + self.ccard + '\nVaccination status: ' + str(self.vaccinated)
@@ -17,7 +17,15 @@ class Pet:
         return my_status
     
 
-p1 = Pet('John pork', 'pig', 3, vaccinated = True)
+p1 = Pet('John', 'Pork', age = 6)
+
+p2 = Pet('sugar', 'bulldog')
+
+pets = [p1, p2]
+
+for pet in pets:
+    print(pet)
+    print('')
 #ACTIVITIES:
 #1. Add another pet to the list (try different methods)
 #2. Vaccinate each pet in the list
