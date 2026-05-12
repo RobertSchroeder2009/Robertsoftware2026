@@ -11,12 +11,17 @@ class Car:
         self.price = price
 
     def __str__(self):
+        return '| Make: '+self.make+' | Model: '+self.model+' |Year: '+ str(self.year) +'|Price:' + str(self.price)
 
 
-c1 = Car('Mazda','6',2005)
+c1 = Car('Mazda ','6     ', 2005)
+c2 = Car('Lexus ', 'GX 460', 2017, '$59000')
+c3 = Car('Nissan', 'cube  ', 2019)
+c4 = Car('BMW   ', 'i3    ',2004)
+c5 = Car('Volvo ', 'Ex90  ',2003)
 
 
-cars = [c1]
+cars = [c1, c2, c3, c4, c5]
 
 for car in cars:
     print(car)
