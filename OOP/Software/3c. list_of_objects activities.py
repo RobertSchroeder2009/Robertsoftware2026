@@ -17,9 +17,9 @@ class Pet:
         return my_status
     
 
-p1 = Pet('John', 'Pork', age = 6, ccard = '3853 3795 5873 4892')
+p1 = Pet('John', 'Pork', age = 6)
 
-p2 = Pet('sugar', 'bulldog', vaccinated = True)
+p2 = Pet('sugar', 'bulldog')
 
 pets = [p1, p2]
 
