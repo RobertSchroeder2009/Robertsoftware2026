@@ -54,10 +54,12 @@ p3 = Pet('Cindy', 'Dog',age = 3)
 
 pets = [p1,p2,p3]
 
+
 for pet in pets:
     pet.have_birthday()
     print(pets)
     print('')
+
 
 #ACTIVITIES:
 #1. Have every pet get older by 1 year
