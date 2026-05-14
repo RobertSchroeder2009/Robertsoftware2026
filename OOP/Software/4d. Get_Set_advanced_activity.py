@@ -45,10 +45,15 @@ class Pet:
 
         my_status = 'Name: ' + self._name +'\nCategory: ' + self.__category + '\nAge: ' + str(self.age) +'\nPayment status: ' + payment_status + '\nVaccinated: '+ str(self.vaccinated)
         return my_status
+    
+    def __repr__(self):
+        return self.__str__()
 
 p1 = Pet(name='Bonnie', category='Dog')
 p2 = Pet('Clyde','Cat','Persian',12)
 p3 = Pet('Cindy', 'Dog',age = 3)
+p3 = Pet('Chomper', 'crocodile', age = 7)
+p3 = Pet('Princess', 'dog', 'shih tzu', '2')
 
 
 
@@ -57,9 +62,10 @@ pets = [p1,p2,p3]
 
 for pet in pets:
     pet.have_birthday()
-    print(pets)
+    
+for pet in pets:
+    print(pet)
     print('')
-
 
 #ACTIVITIES:
 #1. Have every pet get older by 1 year
