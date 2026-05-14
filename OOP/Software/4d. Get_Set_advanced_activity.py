@@ -23,6 +23,9 @@ class Pet:
     def get_weight(self):
         return self.weight
 
+    def have_birthday(self):
+        self.age += 1
+
     def get_category(self):
         return self.__category
     
@@ -48,8 +51,13 @@ p2 = Pet('Clyde','Cat','Persian',12)
 p3 = Pet('Cindy', 'Dog',age = 3)
 
 
+
 pets = [p1,p2,p3]
 
+for pet in pets:
+    pet.have_birthday()
+    print(pets)
+    print('')
 
 #ACTIVITIES:
 #1. Have every pet get older by 1 year
