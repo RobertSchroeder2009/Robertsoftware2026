@@ -5,13 +5,13 @@ import random
 class Fighter:
     def __init__(self,name,starting_health,weapon,shield):
         self.name = name
-        self.health = starting_health
+        self.__health = starting_health
         self.shield = shield
         self.weapon = weapon
 
 
     def report(self):
-        print(self.name+' health: '+str(self.health))
+        print(self.name+' health: '+str(self.__health))
 
     def random_attack(self):
         attack_power = random.randint(self.weapon // 2, self.weapon*2)
@@ -24,9 +24,10 @@ troll = Fighter('Troll',200,30,10)
 
 you.report()
 troll.report()
-#1. Create a loop which simulates a fight and declares a winner
-print('You attack the troll')
-troll.health -= you.random_attack()
+print('You attack the troll...')
+troll.__health -= you.random_attack()
 troll.report()
-
+print('The troll attacks you...')
+you.__health -= troll.random_attack()
+you.report()
 #2. Test the game 
