@@ -57,8 +57,9 @@ class Fighter:
         toc = time.time()
         time_taken = toc - tic
         multiplier = 3 - abs(target-time_taken)
-        if multiplier < 0.5:
+        if multiplier < 1:
             multiplier = 0
+            print('To Late!')
         print('Attack power:', attack_power)
         print('Multiplier:', multiplier)
         return attack_power*multiplier
