@@ -3,7 +3,6 @@
 #2. Add a magic attribute 
 #3. Modify the random attack method to include magic
 
-
 import random, time 
 
 class Fighter:
@@ -14,7 +13,7 @@ class Fighter:
         self.shield = shield
   
     def report(self):
-        print(self.name+':'+ ' Health: '+ str(self.__health))
+        print(self.name+"'s "+ 'health: '+ str(self.__health))
 
     def is_dead(self):
         if self.__health <= 0:
@@ -23,22 +22,44 @@ class Fighter:
             return False
 
     def random_attack(self):
-        attack_power = random.randint(self.weapon/2, self.weapon*2)
+        attack_power = random.randint(self.weapon // 2, self.weapon*2)
         print('Attack power:', attack_power)
         return attack_power
 
+
     def skill_attack(self):
-        attack_power = random.randint(self.weapon/2, self.weapon*2)
+        attack_power = random.randint(self.weapon // 2, self.weapon*2)
         target = random.randint(2,6)
-        print('Hit enter in exactly',target,'seconds')
+        print('Hit enter in the exactly',target,'seconds')
+        time.sleep(1)
+        print('Ready...')
+        time.sleep(1)
         tic = time.time()
+        if target > 5:
+            print(6)
+            time.sleep(1)
+            print('')
+        if target == 5:
+            print('')
+            time.sleep(1)
+        if target > 3:
+            print(4)
+            time.sleep(1)
+            print('')
+        if target == 3:
+            print('')
+            time.sleep(1)
+        print(2)
+        time.sleep(1)
+        print('') 
+        time.sleep(1)       
         input()
         toc = time.time()
         time_taken = toc - tic
         multiplier = 3 - abs(target-time_taken)
-        if multiplier < 2: 
+        if multiplier < 1:
             multiplier = 0
-
+            print('To Late!')
         print('Attack power:', attack_power)
         print('Multiplier:', multiplier)
         return attack_power*multiplier
@@ -50,3 +71,54 @@ class Fighter:
             print('Damage:', damage)
         else:
             print('No damage')
+
+class Wizard(Fighter):
+    def __init__(self,name, starting_health, weapon, shield,magic):
+      super().__init__(name, starting_health, weapon, shield,)
+      self.magic = magic
+
+    def random_attack(self):
+        attack_power = random.randint(self.weapon // 2, self.weapon*2)
+        print('Attack power:', attack_power)
+        return attack_power + self.magic
+  
+class Archer(Fighter):
+    def __init__(self,name, starting_health, weapon, shield, Range_attack):
+      super().__init__(name, starting_health, weapon, shield,)
+      self.range = Range_attack
+
+    def random_attack(self):
+        attack_power = random.randint(self.weapon // 3, self.weapon*3)
+        range_power = random.randint(self.range // 2, self.range*2)
+        print('Ranger power:', range_power)
+        print('Attack power:', attack_power)
+        return attack_power + range_power
+  
+
+player = Fighter('Player',150,60,20)
+troll = Fighter('Troll',300,30,10)
+Wiz = Wizard('Wizard',75,30,10,50)
+Arch = Archer('Bow Man',100,25,5,25)
+
+player.report()
+Arch.report()
+print('')
+time.sleep(2)
+
+while True:
+    print('player attacks the',Wiz.name)
+    Wiz.defend(player.skill_attack())
+    Wiz.report()
+    time.sleep(3)
+    print('')
+    if Wiz.is_dead():
+        print('you win')
+        break
+    print(Wiz.name,'attacks you . . .')
+    player.defend(Wiz.random_attack())
+    player.report()
+    time.sleep(5)
+    if player.is_dead():
+        print(Wiz.name,'wins')
+        break
+    print('')

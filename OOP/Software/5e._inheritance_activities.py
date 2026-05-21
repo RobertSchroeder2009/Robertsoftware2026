@@ -95,10 +95,10 @@ class Archer(Fighter):
         return attack_power + range_power
   
 
-player = Fighter('Player',150,60,20)
-troll = Fighter('Troll',300,30,10)
-Wiz = Wizard('Wizard',75,30,10,50)
-Arch = Archer('Bow Man',100,25,5,25)
+player = Fighter('Player',110,50,20)
+troll = Fighter('Troll',375,30,10)
+Wiz = Wizard('Wizard',300,30,10,50)
+Arch = Archer('Bow Man',200,25,5,25)
 
 player.report()
 Arch.report()
@@ -111,7 +111,7 @@ while True:
     Arch.report()
     time.sleep(3)
     print('')
-    if troll.is_dead():
+    if Arch.is_dead():
         print('you win')
         break
     print(Arch.name,'attacks you . . .')
