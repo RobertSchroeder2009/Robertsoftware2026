@@ -100,6 +100,9 @@ troll = Fighter('Troll',375,30,10)
 Wiz = Wizard('Wizard',300,30,10,50)
 Arch = Archer('Bow Man',200,25,5,25)
 
+print('Choose your enemy', '| 1. A troll:', '\n                  | 2. A wizard', '\n Choose your enemy| 3. A Archer')
+Message = input('Message? ')
+
 player.report()
 Arch.report()
 print('')
