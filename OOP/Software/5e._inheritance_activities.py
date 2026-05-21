@@ -13,7 +13,7 @@ class Fighter:
         self.shield = shield
   
     def report(self):
-        print(self.name+"'s "+ ' health: '+ str(self.__health))
+        print(self.name+"'s "+ 'health: '+ str(self.__health))
 
     def is_dead(self):
         if self.__health <= 0:
@@ -86,42 +86,39 @@ class Archer(Fighter):
     def __init__(self,name, starting_health, weapon, shield, Range_attack):
       super().__init__(name, starting_health, weapon, shield,)
       self.range = Range_attack
-    
-    def random_Arch_attack(self):
-        range_power = random.randint(self.range // 2, self.range*2)
-        print('Ranger power:', range_power)
-        return range_power 
 
     def random_attack(self):
-        attack_power = random.randint(self.weapon // 2, self.weapon*2)
+        attack_power = random.randint(self.weapon // 3, self.weapon*3)
+        range_power = random.randint(self.range // 2, self.range*2)
+        print('Ranger power:', range_power)
         print('Attack power:', attack_power)
         return attack_power + range_power
   
 
-player = Fighter('Player',100,60,20)
+player = Fighter('Player',150,60,20)
 troll = Fighter('Troll',300,30,10)
 Wiz = Wizard('Wizard',75,30,10,50)
-Arch = Archer('Bow Man',150,25,5,50)
+Arch = Archer('Bow Man',100,25,5,25)
 
 player.report()
-troll.report()
+Arch.report()
 print('')
 time.sleep(2)
 
 while True:
-    print('player attacks the troll . . .')
-    troll.defend(player.skill_attack())
-    troll.report()
+    print('player attacks the',Arch.name)
+    Arch.defend(player.skill_attack())
+    Arch.report()
     time.sleep(3)
     print('')
     if troll.is_dead():
         print('you win')
         break
-    print('The troll attacks you . . .')
-    player.defend(troll.random_attack())
+    print(Arch.name,'attacks you . . .')
+    player.defend(Arch.random_attack())
     player.report()
     time.sleep(5)
     if player.is_dead():
-        print('The troll wins')
+        print(Arch.name,'wins')
         break
     print('')
