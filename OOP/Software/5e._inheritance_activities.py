@@ -1,10 +1,8 @@
-#Learning Intentions
-#1. Create a Wizard class which inherits from a fighter
-#2. Add a magic attribute 
-#3. Modify the random attack method to include magic
 
+#Allows for the use of random clauses
 import random, time 
 
+#A base class that is used for default base other class off of
 class Fighter:
     def __init__(self,name, starting_health, weapon, shield):
         self.name = name
@@ -72,6 +70,7 @@ class Fighter:
         else:
             print('No damage')
 
+#A class using mainly 'Fighter' values but include a seperate "magic" value that is added onto the damage
 class Wizard(Fighter):
     def __init__(self,name, starting_health, weapon, shield,magic):
       super().__init__(name, starting_health, weapon, shield,)
@@ -82,6 +81,7 @@ class Wizard(Fighter):
         print('Attack power:', attack_power)
         return attack_power + self.magic
   
+#A class that builds off the fighter class but it also allows for a new value called "Range_attack", that is randomised to be either between the original value divided by three and tripled, with the random value then added to the damage.
 class Archer(Fighter):
     def __init__(self,name, starting_health, weapon, shield, Range_attack):
       super().__init__(name, starting_health, weapon, shield,)
@@ -94,14 +94,27 @@ class Archer(Fighter):
         print('Attack power:', attack_power)
         return attack_power + range_power
   
-
+#The many different type values that are interchangeable 
 player = Fighter('Player',110,50,20)
 troll = Fighter('Troll',375,30,10)
 Wiz = Wizard('Wizard',300,30,10,50)
-Arch = Archer('Bow Man',200,25,5,25)
+Arch = Archer('Archer',200,25,5,25)
 
-print('Choose your enemy', '| 1. A troll:', '\n                  | 2. A wizard', '\n Choose your enemy| 3. A Archer')
-Message = input('Message? ')
+print('Choose your enemy', '| 1. A troll:', '\n                  | 2. A wizard', '\n                  | 3. A Archer')
+Choice = int(input('(Please type the selected number)'))
+
+while Choice < 1 or Choice >3:
+    print('placeholder 1')
+    Stage = int(input(placeholder2))
+
+if 1 == Choice:
+    print('-Troll selected-') 
+if 2 == Choice:
+    print('-Wizard selected-')
+if 3 == Choice:
+    print('-Archer selected-')
+
+
 
 player.report()
 Arch.report()
