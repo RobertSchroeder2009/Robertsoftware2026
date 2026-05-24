@@ -94,6 +94,12 @@ class Archer(Fighter):
         print('Attack power:', attack_power)
         return attack_power + range_power
   
+class Boss(Fighter):
+    def __init__(self,name, starting_health, weapon, shield, ________):
+      super().__init__(name, starting_health, weapon, shield,)
+
+
+
 #The many different type values that are interchangeable 
 player = Fighter('Player',110,50,20)
 troll = Fighter('Troll',375,30,10)
