@@ -111,20 +111,21 @@ monsters = random.randint(1, 3)
 
 
 def generate():
-    print('')
     if 1 == monsters:
         print('[A fleshy beast approach]') 
-        target = troll
+        time.sleep(3)
+        print('[prepare for a fight]')
 
     if 2 == monsters:
         print('[A shadowed figure approaches, most likey a old world caster]')
-        target = wiz
+        time.sleep(1)
+        print('[prepare for a fight]')
 
     if 3 == monsters:
         print('[A form moves out from beyond a corner, it readys a worn bow towards you, with arrows covered in a sludge]')
-        target = arch
+        time.sleep(1)
+        print('[prepare for a fight]')
 
-    time.sleep(2)
+    time.sleep(4)
 
 
-generate()

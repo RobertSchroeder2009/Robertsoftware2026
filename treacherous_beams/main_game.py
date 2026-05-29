@@ -2,6 +2,7 @@
 #Allows for the use of random clauses
 import random, time 
 from story_code import story
+from monster_generation import generate
 
 story()
 
@@ -110,22 +111,16 @@ player = Fighter('Player',110,50,20)
 troll = Fighter('Fleshy form',375,30,10)
 wiz = Wizard('Tainted caster',300,30,10,50)
 arch = Archer('putrid archer',200,25,5,25)
+
 monsters = random.randint(1, 3)
-
-
 if 1 == monsters:
-    print('[A fleshy beast approach]') 
     target = troll
-
-if 2 == monsters:
-    print('[A shadowed figure approaches, most likey a old world caster]')
+elif 2 == monsters:
     target = wiz
-
-if 3 == monsters:
-    print('[A form moves out from beyond a corner, it readys a worn bow towards you, with arrows covered in a sludge]')
+elif 3 == monsters:
     target = arch
 
-time.sleep
+generate()
 
 player.report()
 target.report()

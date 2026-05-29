@@ -79,3 +79,4 @@ def story():
 
     elif 'no' in Sty:
         print('A story will be randomly selected for you')
+    print('')
