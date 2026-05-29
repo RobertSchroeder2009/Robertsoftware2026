@@ -1,6 +1,6 @@
 import random, time 
 Sty = ""
-Yn = ["Yes","yes", "No","no"]
+yynn = ["Yes", "yes", "No", "no"]
 
 
 
@@ -11,10 +11,11 @@ def story():
     time.sleep(9)
     print('now the sands that encase the earth are filled with the ash of all the souls that once lived...')
     time.sleep(7)
+    print('')
     print('except for a few...')
-    time.sleep(5)
+    time.sleep(3)
     print('a tiny amount of people...')
-    time.sleep(5)
+    time.sleep(4)
     print('and after generations bloody hands and smoked flesh...')
     time.sleep(4)
     print('roots could finally sprout...')
@@ -25,6 +26,7 @@ def story():
     time.sleep(4)
     print('villages rised and sands shifted...')
     time.sleep(3)
+    print('')
     print('but the scars are stil lying in wait...')
     time.sleep(4)
     print('still hunger...')
@@ -47,28 +49,33 @@ def story():
     print('in a land of not what you know of...')
     time.sleep(4)
 
-    print('do you know your backstory? [yes/no]')
-    Sty = input('')
+ #-----------------------------------
 
-    while Yn not in Sty:
-       print("Please make sure your spelling is clear and correct")
-       Skill = input("do you know your backstory? [yes/no]")
+    print('---------------------')
+    print('')
+    print("Do you know your backstory[Yes/No]")
+    Sty = input("")
+    print('')
+
+    while Sty not in yynn:
+       print("Please type it with a capital letter")
+       Sty = input('')
 
     if 'Yes' in Sty:
-        Story = input('[Please type you backstory here]')
+        Story = input('[Please type you backstory here] ')
+        print('')
         print('Oh wow such a interesting story...')
         print(f'Really? {Story}?')
 
     elif 'yes' in Sty:
-        Level = 2
-        print("Medium level chosen")
+        Story = input('[Please type you backstory here]')
+        print('')
+        print('Oh wow such a interesting story...')
+        print(f'Really? {Story}?')
+
 
     elif 'No' in Sty:
-        Level = 2
-        print("Medium level chosen")
+        print('A story will be randomly selected for you')
 
     elif 'no' in Sty:
-        Level = 2
-        print("Medium level chosen")
-
-story()
+        print('A story will be randomly selected for you')

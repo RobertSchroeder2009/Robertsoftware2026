@@ -1,13 +1,6 @@
-
-#Allows for the use of random clauses
 import random, time 
-from story_code import story
 
-story()
 
-time.sleep(2)
-
-#A base class that is used for default base other class off of
 class Fighter:
     def __init__(self,name, starting_health, weapon, shield):
         self.name = name
@@ -113,39 +106,25 @@ arch = Archer('putrid archer',200,25,5,25)
 monsters = random.randint(1, 3)
 
 
-if 1 == monsters:
-    print('[A fleshy beast approach]') 
-    target = troll
 
-if 2 == monsters:
-    print('[A shadowed figure approaches, most likey a old world caster]')
-    target = wiz
 
-if 3 == monsters:
-    print('[A form moves out from beyond a corner, it readys a worn bow towards you, with arrows covered in a sludge]')
-    target = arch
 
-time.sleep
 
-player.report()
-target.report()
-print('')
-time.sleep(2)
-
-while True:
-    print('player attacks the',target.name)
-    target.defend(player.skill_attack())
-    target.report()
-    time.sleep(3)
+def generate():
     print('')
-    if target.is_dead():
-        print('you win')
-        break
-    print(target.name,'attacks you . . .')
-    player.defend(target.random_attack())
-    player.report()
-    time.sleep(5)
-    if player.is_dead():
-        print(target.name,'wins')
-        break
-    print('')
+    if 1 == monsters:
+        print('[A fleshy beast approach]') 
+        target = troll
+
+    if 2 == monsters:
+        print('[A shadowed figure approaches, most likey a old world caster]')
+        target = wiz
+
+    if 3 == monsters:
+        print('[A form moves out from beyond a corner, it readys a worn bow towards you, with arrows covered in a sludge]')
+        target = arch
+
+    time.sleep(2)
+
+
+generate()
