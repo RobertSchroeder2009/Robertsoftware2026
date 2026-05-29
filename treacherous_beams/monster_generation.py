@@ -103,29 +103,30 @@ player = Fighter('Player',110,50,20)
 troll = Fighter('Fleshy form',375,30,10)
 wiz = Wizard('Tainted caster',300,30,10,50)
 arch = Archer('putrid archer',200,25,5,25)
-monsters = random.randint(1, 3)
-
-
-
-
+target = ''
 
 
 def generate():
+    monsters = random.randint(1, 3)
     if 1 == monsters:
         print('[A fleshy beast approach]') 
         time.sleep(3)
+        target = troll
         print('[prepare for a fight]')
 
     if 2 == monsters:
         print('[A shadowed figure approaches, most likey a old world caster]')
         time.sleep(1)
+        target = wiz
         print('[prepare for a fight]')
 
     if 3 == monsters:
         print('[A form moves out from beyond a corner, it readys a worn bow towards you, with arrows covered in a sludge]')
         time.sleep(1)
+        target = arch
         print('[prepare for a fight]')
+    return target
 
-    time.sleep(4)
+
 
 

@@ -1,13 +1,8 @@
-
-#Allows for the use of random clauses
-import random, time 
-from story_code import story
 from monster_generation import generate
-from combat_game import battle
+import random, time 
+target = ''
 
-story()
-
-time.sleep(2)
+#-----------------------------------------------------------
 
 #A base class that is used for default base other class off of
 class Fighter:
@@ -113,31 +108,16 @@ troll = Fighter('Fleshy form',375,30,10)
 wiz = Wizard('Tainted caster',300,30,10,50)
 arch = Archer('putrid archer',200,25,5,25)
 
+
+#--------------------------------------------------------
+
 generate()
 
-player.report()
-target.report()
-print('')
-time.sleep(2)
+target = generate()
 
-
-while True:
-    print('player attacks the',target.name)
-    target.defend(player.skill_attack())
-    target.report()
-    time.sleep(3)
-    print('')
-    if target.is_dead():
-        print('you win')
-        break
-    print(target.name,'attacks you . . .')
-    player.defend(target.random_attack())
-    player.report()
-    time.sleep(5)
-    if player.is_dead():
-        print(target.name,'wins')
-        break
-    print('')
-
-
-print('after battle reached')
+if target == arch:
+    print('arch work')
+elif target == wiz:
+    print('Wiz work')
+elif target == troll:
+    print('work Troll')
