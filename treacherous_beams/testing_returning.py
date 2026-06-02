@@ -1,6 +1,6 @@
 from monster_generation import generate
 import random, time 
-
+enemy = ''
 
 #-----------------------------------------------------------
 
@@ -114,13 +114,20 @@ arch = Archer('putrid archer',200,25,5,25)
 
 target = generate()
 
-#print(target)
+def convert_target():
+    if target == 3:
+        print('arch works')
+        enemy = arch
+    elif target == 2:
+        print('Wiz works')
+        enemy = wiz
+    elif target == 1:
+        print('Troll works')
+        enemy = troll
 
-if target == arch:
-    print('arch works')
-elif target == wiz:
-    print('Wiz works')
-elif target == troll:
-    print('Troll works')
+convert_target()
+print(enemy)
+
+target = generate()
 
 
