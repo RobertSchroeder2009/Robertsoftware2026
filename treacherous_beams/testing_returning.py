@@ -1,6 +1,6 @@
 from monster_generation import generate
 import random, time 
-target = ''
+
 
 #-----------------------------------------------------------
 
@@ -111,13 +111,16 @@ arch = Archer('putrid archer',200,25,5,25)
 
 #--------------------------------------------------------
 
-generate()
 
 target = generate()
 
+#print(target)
+
 if target == arch:
-    print('arch work')
+    print('arch works')
 elif target == wiz:
-    print('Wiz work')
+    print('Wiz works')
 elif target == troll:
-    print('work Troll')
+    print('Troll works')
+
+
