@@ -96,7 +96,7 @@ class Archer(Fighter):
         print('Attack power:', attack_power)
         return attack_power + range_power
   
-class Boss(Fighter):
+
     def __init__(self,name, starting_health, weapon, shield, ________):
       super().__init__(name, starting_health, weapon, shield,)
 
@@ -112,22 +112,20 @@ arch = Archer('putrid archer',200,25,5,25)
 #--------------------------------------------------------
 
 
-target = generate()
 
-def convert_target():
+def approach():
+    target = generate()
     if target == 3:
         print('arch works')
         enemy = arch
+
     elif target == 2:
-        print('Wiz works')
         enemy = wiz
+
     elif target == 1:
-        print('Troll works')
         enemy = troll
+    print(enemy)
 
-convert_target()
-print(enemy)
-
-target = generate()
+#-----------------------------------------------------------
 
 

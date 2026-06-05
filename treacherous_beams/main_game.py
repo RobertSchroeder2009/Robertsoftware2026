@@ -1,11 +1,24 @@
-
 #Allows for the use of random clauses
 import random, time 
 from story_code import story
 from monster_generation import generate
-from combat_game import battle
+from yes_no_def import yes_no
+import sys
 
-story()
+
+#-----------------------------------
+#allowing text to be coloured
+
+RED = "\033[91m"
+GREEN = "\033[92m"
+YELLOW = "\033[93m"
+RESET = "\033[0m"  
+
+#E.G "  print(f"{RED}This is red text{RESET}")  "
+#-----------------------------------
+
+#Calls upon the other file to print the story
+#[<---REMOVE HASH TO PLAY STORY]  story()
 
 time.sleep(2)
 
@@ -18,7 +31,8 @@ class Fighter:
         self.shield = shield
   
     def report(self):
-        print(self.name+"'s "+ 'health: '+ str(self.__health))
+        print(f"{GREEN}{self.name}'s health: {str(self.__health)}{RESET}")
+        
 
     def is_dead(self):
         if self.__health <= 0:
@@ -34,37 +48,43 @@ class Fighter:
 
     def skill_attack(self):
         attack_power = random.randint(self.weapon // 2, self.weapon*2)
-        target = random.randint(2,6)
-        print('Hit enter in the exactly',target,'seconds')
+        enemy = random.randint(2,6)
+        print('Hit enter when you see the X')
         time.sleep(1)
-        print('Ready...')
+        print(f"{GREEN}Ready...{RESET}")
         time.sleep(1)
         tic = time.time()
-        if target > 5:
-            print(6)
+
+        if enemy == 6:
+            print(f'{RED}___{RESET}')
             time.sleep(1)
-            print('')
-        if target == 5:
-            print('')
+
+        if enemy >= 5:
+            print(f'{RED}___{RESET}')
             time.sleep(1)
-        if target > 3:
-            print(4)
+
+        if enemy >= 4:
+            print(f'{RED}___{RESET}')
             time.sleep(1)
-            print('')
-        if target == 3:
-            print('')
+
+        if enemy >= 3:
+            print(f'{RED}___{RESET}')
             time.sleep(1)
-        print(2)
+
+        print(f'{RED}___{RESET}')
         time.sleep(1)
-        print('') 
-        time.sleep(1)       
+
+        print(f'{RED}___{RESET}') 
+        time.sleep(1)  
+
+        print(f'{GREEN}_X_{RESET}')     
         input()
         toc = time.time()
         time_taken = toc - tic
-        multiplier = 3 - abs(target-time_taken)
+        multiplier = 3 - abs(enemy-time_taken)
         if multiplier < 1:
             multiplier = 0
-            print('To Late!')
+            print(f'{RED}To Late!{RESET}')
         print('Attack power:', attack_power)
         print('Multiplier:', multiplier)
         return attack_power*multiplier
@@ -73,9 +93,9 @@ class Fighter:
         damage = attack_power - self.shield
         if damage >  0:
             self.__health -= damage
-            print('Damage:', damage)
+            print(f'{RED}Damage: {damage}{RESET}')
         else:
-            print('No damage')
+            print(f'{GREEN}No damage{RESET}')
 
 #A class using mainly 'Fighter' values but include a seperate "magic" value that is added onto the damage
 class Wizard(Fighter):
@@ -87,7 +107,10 @@ class Wizard(Fighter):
         attack_power = random.randint(self.weapon // 2, self.weapon*2)
         print('Attack power:', attack_power)
         return attack_power + self.magic
-  
+    
+    def restore_health(self,starting_health):
+        self.__health = starting_health
+
 #A class that builds off the fighter class but it also allows for a new value called "Range_attack", that is randomised to be either between the original value divided by three and tripled, with the random value then added to the damage.
 class Archer(Fighter):
     def __init__(self,name, starting_health, weapon, shield, Range_attack):
@@ -96,48 +119,98 @@ class Archer(Fighter):
 
     def random_attack(self):
         attack_power = random.randint(self.weapon // 3, self.weapon*3)
-        range_power = random.randint(self.range // 2, self.range*2)
+        range_power = random.randint(self.range // 5, self.range*5)
         print('Ranger power:', range_power)
         print('Attack power:', attack_power)
         return attack_power + range_power
-  
-class Boss(Fighter):
-    def __init__(self,name, starting_health, weapon, shield, ________):
-      super().__init__(name, starting_health, weapon, shield,)
+    
+    def restore_health(self,starting_health):
+        self.__health = starting_health
+   
+#Turns the value from the other file into a enemy to fight
+def approach():
+    target = generate()
+    if target == 3:
+        enemy = arch
+
+    elif target == 2:
+        enemy = wiz
+
+    elif target == 1:
+        enemy = troll
+    return enemy
+    
+#Contains all the values and comands for the fights
+def battle():
+    while True:
+        print('')
+        print('------------------------------------------------------')
+        print(f'{GREEN}player attacks the {enemy.name}{RESET}')
+        enemy.defend(player.skill_attack())
+        enemy.report()
+        time.sleep(3)
+        print('')
+        if enemy.is_dead():
+            print(f'{GREEN}you win{RESET}')
+            break
+        print(f'{RED}{enemy.name} attacks you . . .{RESET}')
+        player.defend(enemy.random_attack())
+        player.report()
+        time.sleep(3)
+        if player.is_dead():
+            print(f"{RED}{enemy.name} wins{RESET}")
+            time.sleep(2)
+            break
+        print('')
 
 
+#--------------------------------------
 
 #The many different type values that are interchangeable 
-player = Fighter('Player',110,50,20)
-troll = Fighter('Fleshy form',375,30,10)
-wiz = Wizard('Tainted caster',300,30,10,50)
-arch = Archer('putrid archer',200,25,5,25)
+player = Fighter('Player',110,50,25)
+troll = Fighter('Fleshy form',300,30,10)
+wiz = Wizard('Tainted caster',225,30,10,50)
+arch = Archer('putrid archer',180,20,5,25)
 
-generate()
+#takes the value and turns it into a enermy to fight
+enemy = approach()
+
 
 player.report()
-target.report()
+enemy.report()
 print('')
 time.sleep(2)
 
+battle()
 
-while True:
-    print('player attacks the',target.name)
-    target.defend(player.skill_attack())
-    target.report()
-    time.sleep(3)
-    print('')
-    if target.is_dead():
-        print('you win')
-        break
-    print(target.name,'attacks you . . .')
-    player.defend(target.random_attack())
+#checks if the player alive or dead
+if enemy.is_dead():
+    print(f'{GREEN}Player survived{RESET}')
+else:
+    print(f'{RED}GAME OVER{RESET}')
+    sys.exit(0)
+#---------------------------------------
+
+#Checks and prompts the player whether they want to fight another enemy or just finish the game
+print('')
+print('Would you like to play again?')
+time.sleep(1)
+yesno = yes_no()
+
+
+if yes_no == True:
+    enemy = approach()
+    
+    #Heals the enemy
+    enemy.restore_health()
+    
     player.report()
-    time.sleep(5)
-    if player.is_dead():
-        print(target.name,'wins')
-        break
+    enemy.report()
     print('')
+    time.sleep(2)
 
-
-print('after battle reached')
+    #starts the battle again with the player at the same health they won the battle at
+    battle()
+else:
+    #ends the game
+    sys.exit(0)

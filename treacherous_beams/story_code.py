@@ -1,9 +1,14 @@
+#Allows the random generations of values
 import random, time 
+
+#keeps the imput value empty until the player changes it.
 Sty = ""
+
+#Contains the yes no values
 yynn = ["Yes", "yes", "No", "no"]
 
 
-
+#Prints the story of the game
 def story():
     print('Once upon a time, people looked at the sun in hope and warmth...')
     time.sleep(5)
@@ -50,6 +55,7 @@ def story():
     time.sleep(4)
 
  #-----------------------------------
+ #Allows the play to either choose between the player creating their own story or getting one automatically generated
 
     print('---------------------')
     print('')
@@ -58,7 +64,7 @@ def story():
     print('')
 
     while Sty not in yynn:
-       print("Please type it with a capital letter")
+       print("Please type only a yes or no")
        Sty = input('')
 
     if 'Yes' in Sty:
