@@ -18,7 +18,7 @@ RESET = "\033[0m"
 #-----------------------------------
 
 #Calls upon the other file to print the story
-#[<---REMOVE HASH TO PLAY STORY]  story()
+#story()
 
 time.sleep(2)
 
