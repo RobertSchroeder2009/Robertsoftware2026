@@ -12,6 +12,7 @@ import sys
 RED = "\033[91m"
 GREEN = "\033[92m"
 YELLOW = "\033[93m"
+BLUE = "\033[34m"
 RESET = "\033[0m"  
 
 #E.G "  print(f"{RED}This is red text{RESET}")  "
