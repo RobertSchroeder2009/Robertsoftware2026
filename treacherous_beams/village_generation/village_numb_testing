@@ -1,0 +1,17 @@
+from village_zone import random_vill
+
+random_vill
+
+
+def approach():
+    store, medical, exotics = random_vill()
+    if target == 3:
+        enemy = arch
+
+    elif target == 2:
+        enemy = wiz
+
+    elif target == 1:
+        enemy = troll
+    return enemy
+    
