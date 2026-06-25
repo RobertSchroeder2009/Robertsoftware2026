@@ -13,7 +13,7 @@ RESET = "\033[0m"
 
 import random, time 
 
-#allows the game to create a RANDOM enemy and sends it back to the main game to take the properties
+#This pulls and compiles a long randomisation of the places that the village has
 def random_vill():
     print('=============================================================')
     print('')
@@ -91,7 +91,3 @@ def random_vill():
 
     #returns the value
     return store, medical, exotics
-
-random_vill()
-
-
